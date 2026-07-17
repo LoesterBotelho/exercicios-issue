@@ -1,4 +1,3 @@
-
 /**
  * Crie um sistema para uma loja de materiais de construção<br>
  * Os objetos terão os atributos: <br>
@@ -32,9 +31,8 @@ public class Ex5 {
 		if (quantidade > 0) {
 			this.estoque += quantidade;
 		} else {
-			System.out.println("\nNão é possível adicionar estoque negativo.\nPois essa função é apenas para adicionar estoque.\n");
+			System.out.println("Não é possível adicionar quantidade menor ou igual a zero.");
 		}
-		
 	}
 
 	public void adicionarEstoque() {
@@ -42,21 +40,24 @@ public class Ex5 {
 	}
 
 	public void venderProduto(int quantidade) {
-		if (quantidade > 0 && quantidade <= this.estoque) {
+		if (quantidade <= 0) {
+			System.out.println("Quantidade de venda inválida.");
+		} else if (quantidade > this.estoque) {
+			System.out.println("Estoque insuficiente.");
+		} else {
 			this.estoque -= quantidade;
 		}
 	}
 
 	public void aplicarPromocao(double porcentagemDesconto) {
-		double descontoPercentual = ( porcentagemDesconto / 100 );
-		double desconto = this.preco * (descontoPercentual);
-		
-		System.out.println("LOG - PRECO ORIGINAL : " + this.preco);
-		System.out.println("LOG - DESCONTO : " + desconto);
-		
-		this.preco = this.preco - desconto;
-		
-		System.out.println("LOG - VALOR A SER PAGO : " + this.preco);
+		if (porcentagemDesconto <= 0 || porcentagemDesconto > 100) {
+			System.out.println("Percentual de desconto inválido.");
+			return;
+		}
+
+		double desconto = this.preco * (porcentagemDesconto / 100);
+
+		this.preco -= desconto;
 	}
 
 	public String getNome() {
@@ -80,7 +81,9 @@ public class Ex5 {
 	}
 
 	public void setPreco(double preco) {
-		this.preco = preco;
+		if (preco >= 0) {
+			this.preco = preco;
+		}
 	}
 
 	public double getPeso() {
@@ -88,7 +91,9 @@ public class Ex5 {
 	}
 
 	public void setPeso(double peso) {
-		this.peso = peso;
+		if (peso >= 0) {
+			this.peso = peso;
+		}
 	}
 
 	public int getEstoque() {
@@ -96,7 +101,9 @@ public class Ex5 {
 	}
 
 	public void setEstoque(int estoque) {
-		this.estoque = estoque;
+		if (estoque >= 0) {
+			this.estoque = estoque;
+		}
 	}
 
 }
