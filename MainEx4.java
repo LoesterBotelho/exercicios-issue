@@ -10,10 +10,12 @@ public class MainEx4 {
 				);
 		
  double imposto = joao.calcularImposto();
-		
- String msg = String.format("Imposto calculado do joão : %.2f", imposto);
- 
- System.out.println(msg);
+		 
+ System.out.println("Nome: " + joao.getNome());
+ System.out.println("CPF: " + joao.getCpf());
+ System.out.println("UF: " + joao.getUf());
+ System.out.printf("Renda Anual: R$ %.2f%n", joao.getRendaAnual());
+ System.out.printf("Imposto: R$ %.2f%n", joao.calcularImposto());
  
 	}
 }
