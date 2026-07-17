@@ -17,7 +17,7 @@ public class Ex2 {
 		
 		System.out.println("Digite 5 numeros:");
 		for (int i = 0; i < numeros.length; i++) {
-			System.out.print("Numero " + (i+1) + ": ");
+			System.out.print("Numero " + (i + 1) + ": ");
 			numeros[i] = input.nextInt();
 			soma += numeros[i];
 		}
@@ -28,7 +28,9 @@ public class Ex2 {
 		for (int num : numeros) {
 			if (num > maior) {
 				maior = num;
-			} else if (num < menor) {
+			}
+
+			if (num < menor) {
 				menor = num;
 			}
 		}
@@ -39,5 +41,6 @@ public class Ex2 {
 		System.out.println("Menor numero: " + menor);
 		System.out.println("Media dos numero: " + media);
 
+		input.close();
 	}
 }
