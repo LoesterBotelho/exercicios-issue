@@ -13,27 +13,24 @@ public class Ex2 {
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
 		int[] numeros = new int[5];
-
-		System.out.println("Digite 5 n�meros:");
-		for (int i = 1; i < numeros.length; i++) {
-			System.out.print("N�mero " + (i) + ": ");
+		double soma = 0;
+		
+		System.out.println("Digite 5 numeros:");
+		for (int i = 0; i < numeros.length; i++) {
+			System.out.print("Numero " + (i+1) + ": ");
 			numeros[i] = input.nextInt();
+			soma += numeros[i];
 		}
 
-		int maior = 0;
-		int menor = 0;
-		int soma = 0;
-		maior = numeros[0];
-		menor = numeros[0];
-
+		int maior = Integer.MIN_VALUE;
+		int menor = Integer.MAX_VALUE;
+		
 		for (int num : numeros) {
 			if (num > maior) {
 				maior = num;
+			} else if (num < menor) {
+				menor = num;
 			}
-			if (num < menor) {
-				maior = num;
-			}
-			soma += num;
 		}
 
 		double media = soma / numeros.length;
