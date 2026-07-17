@@ -1,4 +1,3 @@
-
 /**
  * Para efetuar o recolhimento do Imposto de Renda a Receita Federal tem o NOME,
  * CPF, UF (RS, PR e SC) e RENDA ANUAL. EX: <br>
@@ -63,25 +62,26 @@ public class Ex4 {
 	}
 
 	public void setRendaAnual(double rendaAnual) {
-		if (rendaAnual >= 0) {
+		if (rendaAnual < 0) {
 			rendaAnual = 0;
 		}
 		this.rendaAnual = rendaAnual;
 	}
 
 	public double calcularImposto() {
-		double aliquota;
+		double aliquota = 0.0;
 
-		if (rendaAnual >= 4000) {
+		if (rendaAnual <= 4000) {
 			aliquota = 0.0;
 		} else if (rendaAnual <= 9000) {
-			aliquota = 0.58;
+			aliquota = 0.058;
 		} else if (rendaAnual <= 25000) {
 			aliquota = 0.15;
 		} else if (rendaAnual <= 35000) {
 			aliquota = 0.275;
+		} else {
+			aliquota = 0.30;
 		}
-		aliquota = 0.30;
 
 		return rendaAnual * aliquota;
 	}
