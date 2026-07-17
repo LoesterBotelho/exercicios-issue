@@ -43,9 +43,15 @@ public class Ex5 {
 	}
 
 	public void aplicarPromocao(double porcentagemDesconto) {
-		double desconto = this.preco * (porcentagemDesconto);
+		double descontoPercentual = ( porcentagemDesconto / 100 );
+		double desconto = this.preco * (descontoPercentual);
+		
+		System.out.println("LOG - PRECO ORIGINAL : " + this.preco);
+		System.out.println("LOG - DESCONTO : " + desconto);
+		
 		this.preco = this.preco - desconto;
-
+		
+		System.out.println("LOG - VALOR A SER PAGO : " + this.preco);
 	}
 
 	public String getNome() {
