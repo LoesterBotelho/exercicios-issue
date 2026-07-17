@@ -29,11 +29,16 @@ public class Ex5 {
 	}
 
 	public void adicionarEstoque(int quantidade) {
-		this.estoque += quantidade;
+		if (quantidade > 0) {
+			this.estoque += quantidade;
+		} else {
+			System.out.println("\nNão é possível adicionar estoque negativo.\nPois essa função é apenas para adicionar estoque.\n");
+		}
+		
 	}
 
 	public void adicionarEstoque() {
-		this.estoque = +1;
+		this.estoque += 1;
 	}
 
 	public void venderProduto(int quantidade) {
