@@ -21,6 +21,13 @@
  */
 public class Ex4 {
 	// Teste o codigo na main em outra classe
+	private static final String[] UFS_VALIDAS = {
+			"AC", "AL", "AP", "AM", "BA", "CE", "DF",
+			"ES", "GO", "MA", "MT", "MS", "MG", "PA",
+			"PB", "PR", "PE", "PI", "RJ", "RN", "RS",
+			"RO", "RR", "SC", "SP", "SE", "TO"
+	};
+
 	private String nome;
 	private String cpf;
 	private String uf;
@@ -54,7 +61,25 @@ public class Ex4 {
 	}
 
 	public void setUf(String uf) {
-		this.uf = uf;
+		if (validarUf(uf)) {
+			this.uf = uf.toUpperCase();
+		} else {
+			this.uf = null;
+		}
+	}
+
+	private boolean validarUf(String uf) {
+		if (uf == null) {
+			return false;
+		}
+
+		for (String ufValida : UFS_VALIDAS) {
+			if (ufValida.equalsIgnoreCase(uf)) {
+				return true;
+			}
+		}
+
+		return false;
 	}
 
 	public double getRendaAnual() {
