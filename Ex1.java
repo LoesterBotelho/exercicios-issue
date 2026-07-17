@@ -15,21 +15,34 @@ public class Ex1 {
 		double somaAltura = 0;
 		int contador = 0;
 		double altura;
+
 		while (true) {
 			System.out.println("Insira a altura");
 			altura = input.nextDouble();
-			if (altura > 0) {
-				somaAltura += altura;
-				contador++;				
-			} else {
+
+			if (altura == 0) {
 				break;
 			}
+
+			if (altura < 0) {
+				System.out.println("Altura inválida.");
+				continue;
+			}
+
+			somaAltura += altura;
+			contador++;
 		}
 
-		double media = somaAltura / contador;
-		System.out.println("somaAltura = " + somaAltura);
-		System.out.println("contador =  " + contador);
-		System.out.println("Média de altura: " + media + " metros");
+		if (contador > 0) {
+			double media = somaAltura / contador;
+			System.out.println("somaAltura = " + somaAltura);
+			System.out.println("contador =  " + contador);
+			System.out.println("Média de altura: " + media + " metros");
+		} else {
+			System.out.println("Nenhuma altura válida foi informada.");
+		}
+
+		input.close();
 	}
 
 }
